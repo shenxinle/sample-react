@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import './index.scss';
 
 class ModalCore extends Component {
     constructor(props) {
@@ -13,7 +14,7 @@ class ModalCore extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="r-modal">
                 <div className="r-modal-shade"></div>
                 <div className="r-modal-content">
                     <div className="r-modal-header">
