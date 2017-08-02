@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
+import Modal from '../../components/modal/index';
 
 class ModalDemo extends Component {
     render() {
         return <div>
-            <div>modal</div>
+            <Modal></Modal>
         </div>
     }
 }
