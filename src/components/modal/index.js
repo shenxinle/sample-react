@@ -1,54 +1,107 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import autobind from 'autobind-decorator';
+
 import './index.scss';
 
 class ModalCore extends Component {
-    constructor(props) {
-        super(props)
-    }
-    componentDidMount() {
-        
-    }
-    componentWillUnmount() {
+  constructor(props) {
+    super(props)
+  }
+  componentDidMount() {
+    
+  }
+  componentWillUnmount() {
 
-    }
-    render() {
-        return (
-            <div className="r-modal">
-                <div className="r-modal-shade"></div>
-                <div className="r-modal-content">
-                    <div className="r-modal-header">
-                        Basic Modal
-                    </div>
-                    <div className="r-modal-body">
-                        some contents
-                    </div>
-                    <div className="r-modal-footer">
-                        <button>取消</button>
-                        <button>确定</button>
-                    </div>
-                </div>
-            </div>
-        )
-    }
+  }
+
+  @autobind
+  handleOk() {
+    let {handleOk} = this.props
+    handleOk()
+  }
+
+  @autobind
+  handleCancel() {
+    let {handleCancel} = this.props;
+    handleCancel();
+  }
+
+  render() {
+    let {shown} = this.props
+    return (
+      <div className={'r-modal ' + (shown ? '' : 'hide')}>
+        <div className="r-modal-shade" onClick={this.handleCancel}></div>
+        <div className="r-modal-content">
+          <div className="r-modal-header">
+            Basic Modal
+          </div>
+          <div className="r-modal-body">
+            some contents
+          </div>
+          <div className="r-modal-footer">
+            <button onClick={this.handleCancel}>取消</button>
+            <button onClick={this.handleOk}>确定</button>
+          </div>
+        </div>
+      </div>
+    )
+  }
 }
 
 class Modal extends Component {
-    constructor(props) {
-        super(props)
-    }
-    componentDidMount() {
-        var div = document.createElement('div')
-        div.className = 'r-modal'
-        document.body.appendChild(div)
-        ReactDOM.render(<ModalCore />, div)
-    }
-    componentWillUnmount() {
+  constructor(props) {
+    super(props)
+  }
+  componentWillMount() {
 
+  }
+  componentDidMount() {
+    if (this.props.shown) {
+      this.mountOrUpdateModal()
     }
-    render() {
-        return null
+  }
+
+  shouldComponentUpdate() {
+    return true
+  }
+  componentWillUpdate(nextProps, nextStats) {
+    
+  }
+  componentDidUpdate() {
+    this.mountOrUpdateModal()
+  }
+
+  componentWillUnmount() {
+
+  }
+
+  @autobind
+  mountOrUpdateModal() {
+    var div;
+    var options = {
+      shown: this.props.shown,
+      handleOk: this.props.handleOk,
+      handleCancel: this.props.handleCancel
     }
+    if (this.modalMountedContainer) { // update
+      div = this.modalMountedContainer
+    } else { // mount
+      div = document.createElement('div')
+      div.className = 'r-xxx-container'
+      document.body.appendChild(div)
+      this.modalMountedContainer = div;
+    }
+    ReactDOM.render(<ModalCore {...options} />, div)
+  }
+
+  render() {
+    return null
+  }
+}
+
+Modal.defaultProps = {
+  shown: false
 }
 
 export default Modal;
