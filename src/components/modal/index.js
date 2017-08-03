@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import autobind from 'autobind-decorator';
+import PropTypes from 'prop-types';
 
 import './index.scss';
 
@@ -100,6 +101,11 @@ class Modal extends Component {
   }
 }
 
+Modal.propTypes = {
+  shown: PropTypes.bool,
+  handleOk: PropTypes.func,
+  handleCancel: PropTypes.func
+}
 Modal.defaultProps = {
   shown: false
 }
