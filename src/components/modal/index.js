@@ -9,12 +9,6 @@ class ModalCore extends Component {
   constructor(props) {
     super(props)
   }
-  componentDidMount() {
-    
-  }
-  componentWillUnmount() {
-
-  }
 
   @autobind
   handleOk() {
@@ -54,27 +48,15 @@ class Modal extends Component {
   constructor(props) {
     super(props)
   }
-  componentWillMount() {
 
-  }
   componentDidMount() {
     if (this.props.shown) {
       this.mountOrUpdateModal()
     }
   }
 
-  shouldComponentUpdate() {
-    return true
-  }
-  componentWillUpdate(nextProps, nextStats) {
-    
-  }
   componentDidUpdate() {
     this.mountOrUpdateModal()
-  }
-
-  componentWillUnmount() {
-
   }
 
   @autobind
