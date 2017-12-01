@@ -15,7 +15,6 @@ process.on('unhandledRejection', err => {
 require('../config/env');
 
 const path = require('path');
-const chalk = require('chalk');
 const fs = require('fs-extra');
 const webpack = require('webpack');
 const config = require('../config/webpack.config.prod');
@@ -53,12 +52,12 @@ measureFileSizesBeforeBuild(paths.appBuild)
     .then(
         ({ stats, previousFileSizes, warnings }) => {
             if (warnings.length) {
-                console.log(chalk.yellow('Compiled with warnings.\n'));
+                console.log('Compiled with warnings.\n');
                 console.log(warnings.join('\n\n'));
-                console.log('\nSearch for the ' + chalk.underline(chalk.yellow('keywords')) + ' to learn more about each warning.');
-                console.log('To ignore, add ' + chalk.cyan('// eslint-disable-next-line') + ' to the line before.\n');
+                console.log('\nSearch for the ' + 'keywords' + ' to learn more about each warning.');
+                console.log('To ignore, add ' + '// eslint-disable-next-line' + ' to the line before.\n');
             } else {
-                console.log(chalk.green('Compiled successfully.\n'));
+                console.log('Compiled successfully.\n');
             }
 
             console.log('File sizes after gzip:\n');
@@ -72,7 +71,7 @@ measureFileSizesBeforeBuild(paths.appBuild)
             printHostingInstructions(appPackage, publicUrl, publicPath, buildFolder, useYarn);
         },
         err => {
-            console.log(chalk.red('Failed to compile.\n'));
+            console.log('Failed to compile.\n');
             console.log((err.message || err) + '\n');
             process.exit(1);
         }
@@ -93,7 +92,7 @@ function build(previousFileSizes) {
                 return reject(new Error(messages.errors.join('\n\n')));
             }
             if (process.env.CI && (typeof process.env.CI !== 'string' || process.env.CI.toLowerCase() !== 'false') && messages.warnings.length) {
-                console.log(chalk.yellow('\nTreating warnings as errors because process.env.CI = true.\n' + 'Most CI servers set it automatically.\n'));
+                console.log('\nTreating warnings as errors because process.env.CI = true.\n' + 'Most CI servers set it automatically.\n');
                 return reject(new Error(messages.warnings.join('\n\n')));
             }
             return resolve({

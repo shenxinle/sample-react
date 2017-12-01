@@ -15,7 +15,6 @@ process.on('unhandledRejection', err => {
 require('../config/env');
 
 const fs = require('fs');
-const chalk = require('chalk');
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 const clearConsole = require('react-dev-utils/clearConsole');
@@ -73,7 +72,7 @@ choosePort(HOST, DEFAULT_PORT)
             if (isInteractive) {
                 clearConsole();
             }
-            console.log(chalk.cyan('Starting the development server...\n'));
+            console.log('Starting the development server...\n');
             openBrowser(urls.localUrlForBrowser);
         });
 
