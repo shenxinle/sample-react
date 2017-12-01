@@ -2,38 +2,48 @@
 $color-dark: #222;
 $color-gray: #666;
 $color-light: #ccc;
-$color-positive: #0c60ee ;
-$color-assertive: #e42112 ;
+$color-positive: #0c60ee;
+$color-assertive: #e42112;
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 body {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 ul {
-  list-style-type: none;
-  padding: 0;
+    list-style-type: none;
+    padding: 0;
 }
 
-.text-left {text-align: left;}
-.text-center {text-align: center;}
-.text-right {text-align: right;}
+.text-left {
+    text-align: left;
+}
+.text-center {
+    text-align: center;
+}
+.text-right {
+    text-align: right;
+}
 
-.float-left {float: left;}
-.float-right {float: right;}
+.float-left {
+    float: left;
+}
+.float-right {
+    float: right;
+}
 
 .hide {
-  display: none;
+    display: none;
 }
 
 /**
  * button start
  */
 .btn {
-  display: inline-block;
+    display: inline-block;
 }
 /* button end */
 
@@ -41,56 +51,102 @@ ul {
  * 栅格布局 start
  */
 .row {
-  display: flex;
-  flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
 }
-.row.nowrap {flex-wrap: nowrap;}
-.row.wrap {flex-wrap: wrap;}
-.row.wrap-reverse {flex-wrap: wrap-reverse;}
+.row.nowrap {
+    flex-wrap: nowrap;
+}
+.row.wrap {
+    flex-wrap: wrap;
+}
+.row.wrap-reverse {
+    flex-wrap: wrap-reverse;
+}
 
-.row.dir-row {flex-direction: row;}
-.row.dir-row-reverse {flex-direction: row-reverse;}
-.row.dir-col {flex-direction: column;}
-.row.dir-col-reverse {flex-direction: column-reverse;}
+.row.dir-row {
+    flex-direction: row;
+}
+.row.dir-row-reverse {
+    flex-direction: row-reverse;
+}
+.row.dir-col {
+    flex-direction: column;
+}
+.row.dir-col-reverse {
+    flex-direction: column-reverse;
+}
 
-.row.justify-content-start {justify-content: flex-start;}
-.row.justify-content-center {justify-content: center;}
-.row.justify-content-end {justify-content: flex-end;}
-.row.justify-content-around {justify-content: space-around;}
-.row.justify-content-between {justify-content: space-between;}
+.row.justify-content-start {
+    justify-content: flex-start;
+}
+.row.justify-content-center {
+    justify-content: center;
+}
+.row.justify-content-end {
+    justify-content: flex-end;
+}
+.row.justify-content-around {
+    justify-content: space-around;
+}
+.row.justify-content-between {
+    justify-content: space-between;
+}
 
-.row.align-items-stretch {align-items: stretch;}
-.row.align-items-start {align-items: flex-start;}
-.row.align-items-center {align-items: center;}
-.row.align-items-end {align-items: flex-end;}
-.row.align-items-baseline {align-items: baseline;}
+.row.align-items-stretch {
+    align-items: stretch;
+}
+.row.align-items-start {
+    align-items: flex-start;
+}
+.row.align-items-center {
+    align-items: center;
+}
+.row.align-items-end {
+    align-items: flex-end;
+}
+.row.align-items-baseline {
+    align-items: baseline;
+}
 
 .col {
-  flex: 0 0 1;
-  position: relative;
+    flex: 0 0 1;
+    position: relative;
 }
-.col.align-self-stretch {align-self: stretch;}
-.col.align-self-start {align-self: flex-start;}
-.col.align-self-center {align-self: center;}
-.col.align-self-end {align-self: flex-end;}
-.col.align-self-baseline {align-self: baseline;}
+.col.align-self-stretch {
+    align-self: stretch;
+}
+.col.align-self-start {
+    align-self: flex-start;
+}
+.col.align-self-center {
+    align-self: center;
+}
+.col.align-self-end {
+    align-self: flex-end;
+}
+.col.align-self-baseline {
+    align-self: baseline;
+}
 $base-col-width: 8.33333%;
 @for $i from 1 through 12 {
-  .col.col-#{$i} {
-    flex-basis: $i * $base-col-width;
-    width: $i * $base-col-width;
-    max-width: $i * $base-col-width;
-  }
+    .col.col-#{$i} {
+        flex-basis: $i * $base-col-width;
+        width: $i * $base-col-width;
+        max-width: $i * $base-col-width;
+    }
 }
 @for $i from 1 through 11 {
-  .col.offset-#{$i} {
-    margin-left: $i * $base-col-width;
-  }
-  .col.pull-#{$i} { /* 向左偏移 */
-    right: $i * $base-col-width;
-  }
-  .col.push-#{$i} { /* 向右偏移 */
-    left: $i * $base-col-width;
-  }
+    .col.offset-#{$i} {
+        margin-left: $i * $base-col-width;
+    }
+    .col.pull-#{$i} {
+        /* 向左偏移 */
+        right: $i * $base-col-width;
+    }
+    .col.push-#{$i} {
+        /* 向右偏移 */
+        left: $i * $base-col-width;
+    }
 }
 /* 栅格布局 end */

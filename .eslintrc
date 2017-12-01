@@ -1,6 +1,6 @@
 {
-  "extends": "react-app",
-  "rules": {
-    "no-useless-constructor": "off"
-  }
+    "extends": "react-app",
+    "rules": {
+        "no-useless-constructor": "off"
+    }
 }

@@ -4,19 +4,17 @@ import autobind from 'autobind-decorator';
 import Button from '../../components/button/index';
 
 class ButtonDemo extends Component {
-  constructor(props) {
-    super(props)
-  }
+    constructor(props) {
+        super(props)
+    }
 
-  componentDidMount() {
-    
-  }
+    componentDidMount() {}
 
-  render() {
-    return <div>
-      <Button>button default</Button>
-    </div>
-  }
+    render() {
+        return <div>
+            <Button>button default</Button>
+        </div>
+    }
 }
 
 export default ButtonDemo;

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import autobind from 'autobind-decorator';
 import PropTypes from 'prop-types';
@@ -6,21 +6,19 @@ import PropTypes from 'prop-types';
 import './index.scss';
 
 class Button extends Component {
-  constructor(props) {
-    super(props)
-  }
+    constructor(props) {
+        super(props)
+    }
 
-  componentDidMount() {
-    
-  }
+    componentDidMount() {}
 
-  render() {
-    return (
-        <button>
-            {this.props.children}
-        </button>
-    )
-  }
+    render() {
+        return (
+            <button>
+                {this.props.children}
+            </button>
+        )
+    }
 }
 
 export default Button;
