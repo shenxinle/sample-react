@@ -1,4 +1,22 @@
 {
     "plugins": ["transform-decorators-legacy"],
-    "presets": ["react-app"]
+    "presets": ["react", "env", "stage-0"],
+    "env": {
+        "development": {
+            "plugins": [
+                [
+                    "react-transform",
+                    {
+                        "transforms": [
+                            {
+                                "transform": "react-transform-hmr",
+                                "imports": ["react"],
+                                "locals": ["module"]
+                            }
+                        ]
+                    }
+                ]
+            ]
+        }
+    }
 }
