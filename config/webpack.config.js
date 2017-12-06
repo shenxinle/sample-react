@@ -6,6 +6,11 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const rootDir = path.resolve(__dirname, '../');
 const isDevelopment = process.env.NODE_ENV === 'development';
 
+if (isDevelopment) {
+
+} else {
+
+}
 
 module.exports = {
     devtool: 'source-map', // source-map, cheap-module-source-map, eval-source-map, cheap-module-eval-source-map
