@@ -22,36 +22,43 @@ module.exports = {
         historyApiFallback: true, // 单页应用，所有path指向index.html
         compress: true, // gzip
     },
-    entry: path.resolve(rootDir, './src/index.js'),
+    entry: { // string | array | object
+        index: path.resolve(rootDir, './src/index.js')
+    },
     output: {
         path: path.resolve(rootDir, './build'),
-        filename: 'static/js/bundle-[name]-[id]-[hash].js',
+        filename: '[name].[hash].js',
+        publicPath: '/public/'
+    },
+    resolve: {
+        modules: ['node_modules'],
+        alias: {
+            // a list of module name aliases
+        }
     },
     module: {
         rules: [
             {
                 test: /\.jsx?$/,
                 use: {
-                    loader: 'babel-loader',
+                    loader: 'babel-loader'
                 },
-                exclude: /node_modules/,
+                exclude: /node_modules/
             },
             {
                 test: /\.(scss|sass|css)$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: [
-                        {
-                            loader: 'css-loader',
-                        },
-                        {
-                            loader: 'postcss-loader',
-                        },
-                        {
-                            loader: 'sass-loader',
-                        },
-                    ],
-                }),
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader'
+                    },
+                    {
+                        loader: 'postcss-loader'
+                    },
+                    {
+                        loader: 'sass-loader'
+                    }
+                ]
             },
             {
                 test: /\.(png|jpg|gif)$/,
@@ -59,14 +66,14 @@ module.exports = {
                     loader: 'url-loader',
                     options: {
                         limit: 8192,
-                    },
-                },
+                    }
+                }
             },
             {
                 test: /\.(svg)$/,
                 use: {
-                    loader: 'file-loader',
-                },
+                    loader: 'file-loader'
+                }
             },
         ],
     },
@@ -77,6 +84,6 @@ module.exports = {
         }),
         new webpack.HotModuleReplacementPlugin(), //热加载插件
         new webpack.optimize.UglifyJsPlugin(),
-        new ExtractTextPlugin('style-[name]-[id]-[contenthash].css'),
+        // new ExtractTextPlugin('style.[name].[contenthash].css'),
     ],
 };
