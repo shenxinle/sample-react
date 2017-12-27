@@ -15,7 +15,7 @@ if (isDevelopment) {
 module.exports = {
     devtool: 'source-map', // source-map, cheap-module-source-map, eval-source-map, cheap-module-eval-source-map
     devServer: {
-        contentBase: path.resolve(rootDir, './build'),
+        contentBase: path.resolve(rootDir, './public'),
         port: 3000,
         inline: true, // 源文件改动时刷新页面
         hot: true,
@@ -81,6 +81,8 @@ module.exports = {
         new webpack.BannerPlugin('@author common0sky'),
         new HtmlWebpackPlugin({
             template: path.resolve(rootDir, './public/index.html'),
+            favicon: path.resolve(rootDir, './public/favicon.ico'),
+            filename: '../index.html'
         }),
         new webpack.HotModuleReplacementPlugin(), //热加载插件
         new webpack.optimize.UglifyJsPlugin(),

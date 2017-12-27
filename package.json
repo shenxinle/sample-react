@@ -5,7 +5,8 @@
     "start2": "cross-env NODE_ENV=development webpack-dev-server --config config/webpack.config.js --progress",
     "start": "cross-env NODE_ENV=development webpack-dev-server --config config/webpack.config.js --progress --open",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.config.js --progress",
-    "prebuild": "rimraf ./build"
+    "prebuild": "rimraf ./build",
+    "preview": "ws -d build -p 3001"
   },
   "dependencies": {
     "object-assign": "4.1.1",
